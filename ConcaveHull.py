@@ -45,7 +45,7 @@ def SortByAngle(kNearestPoints, currentPoint, prevPoint):
         #print NearestPoint[0], NearestPoint[1], angle
         angles[i] = angle
         i=i+1
-    print angles.shape
+    print(angles.shape)
     return kNearestPoints[np.argsort(angles)]
 
 def plotPoints(dataset):
@@ -95,12 +95,12 @@ def concaveHull(dataset, k):
     # set prevPoint to a Point righ of currentpoint (angle=0)
     prevPoint = (currentPoint[0]+10, currentPoint[1])
     step = 2
-    print '1->>>>>>',time.time()-begin
+    print('1->>>>>>',time.time()-begin)
     while ( (not np.array_equal(firstpoint, currentPoint) or (step==2)) and points.size > 0 ):
         if ( step == 5 ): # we're far enough to close too early
             points = np.append(points, [firstpoint], axis=0)
         kNearestPoints = GetNearestNeighbors(points, currentPoint, k)
-        print '2->>>>>>', time.time() - begin
+        print('2->>>>>>', time.time() - begin)
 
         cPoints = SortByAngle(kNearestPoints, currentPoint, prevPoint)
         # avoid intersections: select first candidate that does not intersect any
@@ -120,7 +120,7 @@ def concaveHull(dataset, k):
                             hull[step-1-j-1],hull[step-j-1])
                     j=j+1
         if ( its==True ):
-            print "all candidates intersect -- restarting with k = ",k+1
+            print("all candidates intersect -- restarting with k = ",k+1)
             return concaveHull(dataset,k+1)
         prevPoint = currentPoint
         currentPoint = cPoints[i-1]
@@ -132,10 +132,10 @@ def concaveHull(dataset, k):
     p = Path(hull)
     pContained = p.contains_points(dataset, radius=0.0000000001)
     if (not pContained.all()):
-        print "not all points of dataset contained in hull -- restarting with k = ",k+1
+        print('not all points of dataset contained in hull -- restarting with k = ",k+1)
         return concaveHull(dataset, k+1)
 
-    print "finished with k = ",k
+    print("finished with k = ",k)
     return hull
 
 
@@ -208,10 +208,10 @@ if __name__ == '__main__':
     import time
     begin  = time.time()
     hull = test_concaveHull_1_k_5()
-    print time.time()-begin
+    print(time.time()-begin)
     plotPath(points,hull)
     # plotPoints(np.array(hull))
-    print hull
+    print(hull)
 # points to test what happens if all points intersect
 # points_intersect = np.array([[1,1],[10,3],[11,8],[9,14],[15,21],[-5,15],[-3,10],
 #                             [2,5],    # from here the distracting points
