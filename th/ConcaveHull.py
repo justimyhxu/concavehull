@@ -7,24 +7,23 @@
 ##      SET OF POINTS
 ##      Adriano Moreira and Maribel Yasmina Santos 2007
 ##
+import sys
+import os
+
+dirpath = sys.path[0]
+knn_path = os.path.join(dirpath,'..')
+sys.path.insert(0,knn_path)
+
 
 import numpy as np
 import torch
-import math
 from knn_cuda import KNN
-import scipy.spatial as spt
 import matplotlib.pyplot as plt
 from matplotlib.path import Path
-import lineintersect as li
+from th import lineintersect as li
 
-def tensor2array(input):
-    pass
-def array2tensor(input):
-    pass
-def cpu2gpu(input):
-    pass
-def gpu2cpu(input):
-    pass
+
+
 def GetFirstPoint(dataset):
     ''' Returns index of first point, which has the lowest y value '''
     # todo: what if there is more than one point with lowest y?
@@ -41,22 +40,12 @@ def GetNearestNeighbors(dataset, point, k):
 
 def SortByAngle(kNearestPoints, currentPoint, prevPoint):
     ''' Sorts the k nearest points given by angle '''
-    angles = torch.zeros(kNearestPoints.shape[0]).float()
-    i = 0
-
-    for NearestPoint in kNearestPoints:
-        # calculate the angle
-        angle = torch.atan2(NearestPoint[1]-currentPoint[1],
-                NearestPoint[0]-currentPoint[0]) - \
-                torch.atan2(prevPoint[1]-currentPoint[1],
-                prevPoint[0]-currentPoint[0])
-        torch_rad2deg = lambda x: 180*x/math.pi
-        angle = angle*180/np.pi
-        # only positive angles
-        angle = torch.fmod(angle+360,360)
-        #print NearestPoint[0], NearestPoint[1], angle
-        angles[i] = angle
-        i=i+1
+    angles =  torch.atan2(kNearestPoints[:,1]-currentPoint[1],
+                      kNearestPoints[:,0]-currentPoint[0])- \
+              torch.atan2(prevPoint[1] - currentPoint[1],
+                          prevPoint[0] - currentPoint[0])
+    angles = angles*180/np.pi
+    angles = torch.fmod(angles+360,360)
     return kNearestPoints[torch.argsort(angles)]
 
 def plotPoints(dataset):
@@ -75,11 +64,9 @@ def plotPath(dataset, path):
             markeredgewidth=0)
     plt.plot(path[:,0],path[:,1],'-',lw=1.4,color='k')
     plt.axis('equal')
-    plt.axis([min(dataset[:,0])-0.5,max(dataset[:,0])+0.5,min(dataset[:,1])-0.5,
-        max(dataset[:,1])+0.5])
-    plt.axis('off')
-    # plt.show()
-    plt.savefig('./doc/figure_1.png', bbox_inches='tight')
+    plt.axis([min(dataset[:,0])-3,max(dataset[:,0])+3,min(dataset[:,1])-3,
+        max(dataset[:,1])+3])
+
     plt.show()
 
 def removePoint(dataset, point):
@@ -100,7 +87,6 @@ def concaveHull(dataset, k):
     assert type(points) == torch.Tensor, "You are stupid like Shaohui!!!!"
     for i in range(100):
         firstpoint = GetFirstPoint(points)
-    print((time.time()-begin)/100)    # init hull as list to easily append stuff
     hull = []
     # add first point to hull
     hull.append(firstpoint)
@@ -110,12 +96,13 @@ def concaveHull(dataset, k):
     # set prevPoint to a Point righ of currentpoint (angle=0)
     prevPoint = (currentPoint[0]+10, currentPoint[1])
     step = 2
-    print('1->>>>',time.time()-begin)
     while ( (not torch.equal(firstpoint, currentPoint) or (step==2)) and torch.prod(torch.tensor(points.shape)) > 0 ):
         if ( step == 5 ): # we're far enough to close too early
             points = torch.cat([points, firstpoint.view(1,-1)], dim=0)
-        kNearestPoints = GetNearestNeighbors(points, currentPoint, k)
-        print('2->>>>>',time.time() - begin)
+        t = time.time()
+        for i in range(100):
+            kNearestPoints = GetNearestNeighbors(points, currentPoint, k)
+
         cPoints = SortByAngle(kNearestPoints, currentPoint, prevPoint)
         # avoid intersections: select first candidate that does not intersect any
         # polygon edge
@@ -139,6 +126,7 @@ def concaveHull(dataset, k):
         prevPoint = currentPoint
         currentPoint = cPoints[i-1]
         # add current point to hull
+
         hull.append(currentPoint)
         points = removePoint(points,currentPoint)
         step = step+1
@@ -155,59 +143,54 @@ def concaveHull(dataset, k):
     return hull
 
 
-points = np.array([[10,  9], [ 9, 18], [16, 13], [11, 15], [12, 14], [18, 12],
-                   [ 2, 14], [ 6, 18], [ 9,  9], [10,  8], [ 6, 17], [ 5,  3],
-                   [13, 19], [ 3, 18], [ 8, 17], [ 9,  7], [ 3,  0], [13, 18],
-                   [15,  4], [13, 16]])
 
-points = torch.from_numpy(points).float().cuda()
-points_solution_k_5 = np.array([[3, 0],[10,  8],[15,  4],[18, 12],[13, 18],[13, 19],
-                               [ 9, 18],[6, 18],[3, 18],[2, 14],[9, 9],[5, 3],[3, 0]
-                               ])
+
 def test_concaveHull_1_k_5(points):
+    points = torch.from_numpy(points).float()
     points = points.cuda()
-    # import ipdb
-    # ipdb.set_trace()
     hull = concaveHull(points,5)
-    assert np.array_equal(hull, points_solution_k_5)
-    return hull
-def test_concaveHull_1_k_3():
-    # this tests, if missed point (too far away) is detected and if the
-    # function is started again with increased k
-    hull = concaveHull(points,3)
-    assert np.array_equal(hull, points_solution_k_5)
     return hull
 
 if __name__ == '__main__':
+    ### Teest DataSet
 
+    points = np.array([[10, 9], [9, 18], [16, 13], [11, 15], [12, 14], [18, 12],
+                       [2, 14], [6, 18], [9, 9], [10, 8], [6, 17], [5, 3],
+                       [13, 19], [3, 18], [8, 17], [9, 7], [3, 0], [13, 18],
+                       [15, 4], [13, 16]])
+
+    points = torch.from_numpy(points).float().cuda()
+    points_solution_k_5 = np.array([[3, 0], [10, 8], [15, 4], [18, 12], [13, 18], [13, 19],
+                                    [9, 18], [6, 18], [3, 18], [2, 14], [9, 9], [5, 3], [3, 0]
+                                    ])
+
+    # points to test what happens if all points intersect
+    points_intersect = np.array([[1, 1], [10, 3], [11, 8], [9, 14], [15, 21], [-5, 15], [-3, 10],
+                                 [2, 5],  # from here the distracting points
+                                 [9, 10], [8, 9], [8, 11], [8, 12], [9, 11], [9, 12]
+                                 ])
+    points_intersect_solution = np.array([[1, 1], [10, 3], [11, 8], [9, 14], [15, 21],
+                                          [-5, 15], [-3, 10], [1, 1]
+                                          ])
+
+    points_E = np.array([[1, 1], [2, 1], [3, 1], [4, 1], [5, 1], [6, 1], [6, 2], [6, 3], [5, 3], [4, 3],
+                         [3, 3], [3, 4], [3, 5], [4, 5], [5, 5], [5, 6], [5, 7], [4, 7], [3, 7], [3, 8],
+                         [3, 9], [4, 9], [5, 9], [6, 9], [6, 10], [6, 11], [5, 11], [4, 11], [3, 11], [2, 11],
+                         [1, 11], [1, 10], [1, 9], [1, 8], [1, 7], [1, 6], [1, 5], [1, 4], [1, 3], [1, 2],
+                         [5, 2], [4, 2], [3, 2], [2, 2], [2, 3], [2, 4], [2, 5], [2, 6], [2, 7], [2, 8],
+                         [2, 9], [2, 10], [3, 10], [4, 10], [5, 10], [3, 6], [4, 6], [5, 6], [4.5, 7], [3, 8.5],
+                         ])
+    # nmax = 800
+    # alldata = np.random.randint(0, 5 * nmax, size=2 * nmax)
+    # alldata = alldata.reshape(nmax, 2)
+    # points = torch.from_numpy(alldata).float()
     import time
     begin = time.time()
-
-    hull = test_concaveHull_1_k_5(points)
+    hull = test_concaveHull_1_k_5(points_intersect)
     print(time.time()-begin)
     print(hull)
-    plotPath(points.cpu().numpy(),hull)
+    plotPath(points_intersect,hull)
 
-# points to test what happens if all points intersect
-# points_intersect = np.array([[1,1],[10,3],[11,8],[9,14],[15,21],[-5,15],[-3,10],
-#                             [2,5],    # from here the distracting points
-#                             [9,10],[8,9],[8,11],[8,12],[9,11],[9,12]
-#                             ])
-# points_intersect_solution = np.array([[1, 1],[10,  3],[11,  8],[9, 14],[15, 21],
-#                                      [-5, 15],[-3, 10],[1, 1]
-#                                      ])
-# def test_concaveHull_intersect():
-#     hull = concaveHull(points_intersect, 5)
-#     assert np.array_equal(hull, points_intersect_solution)
-#
-#
-#
-# points_E = np.array([[1,1],[2,1],[3,1],[4,1],[5,1],[6,1],[6,2],[6,3],[5,3],[4,3],
-#                     [3,3],[3,4],[3,5],[4,5],[5,5],[5,6],[5,7],[4,7],[3,7],[3,8],
-#                     [3,9],[4,9],[5,9],[6,9],[6,10],[6,11],[5,11],[4,11],[3,11],[2,11],
-#                     [1,11],[1,10],[1,9],[1,8],[1,7],[1,6],[1,5],[1,4],[1,3],[1,2],
-#                     [5,2],[4,2],[3,2],[2,2],[2,3],[2,4],[2,5],[2,6],[2,7],[2,8],
-#                     [2,9],[2,10],[3,10],[4,10],[5,10],[3,6],[4,6],[5,6],[4.5,7],[3,8.5],
-#                     ])
+
 
 

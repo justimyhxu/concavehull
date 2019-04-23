@@ -5,7 +5,6 @@
 ## see: martin-thoma.com/how-to-check-if-two-line-segments-intersect/
 ##
 
-import numpy as np
 import torch
 def doBoundingBoxesIntersect(a, b, c, d):
     '''

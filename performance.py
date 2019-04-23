@@ -6,9 +6,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
-import ConcaveHull as CH
-import timeit
-
+from np import ConcaveHull as CH
 
 nmax = 100
 

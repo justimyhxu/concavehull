@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="db85e3a4-c469-493f-8f29-8fde33221aea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcaveHull_th.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConcaveHull_th.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lineintersect.py" beforeDir="false" afterPath="$PROJECT_DIR$/lineintersect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcaveHull.py" beforeDir="false" afterPath="$PROJECT_DIR$/np/ConcaveHull.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConcaveHull_th.py" beforeDir="false" afterPath="$PROJECT_DIR$/th/ConcaveHull.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/figure_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/doc/figure_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lineintersect.py" beforeDir="false" afterPath="$PROJECT_DIR$/th/lineintersect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lineintersect_th.py" beforeDir="false" afterPath="$PROJECT_DIR$/np/lineintersect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/performance.py" beforeDir="false" afterPath="$PROJECT_DIR$/performance.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_knn.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/test_knn.ipynb" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,101 +20,70 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.38595474">
-      <split-first>
-        <leaf>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/performance.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="21" selection-start-line="21" selection-end-line="21" />
-                  <folding>
-                    <element signature="e#62#80#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/lineintersect.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="672">
-                  <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-                  <folding>
-                    <element signature="e#140#158#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/ConcaveHull.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="112">
-                  <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-                  <folding>
-                    <element signature="e#263#281#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/ConcaveHull_th.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="335">
-                  <caret line="132" column="51" lean-forward="true" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
-                  <folding>
-                    <element signature="e#263#281#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/lineintersect_th.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1840">
-                  <caret line="115" column="51" lean-forward="true" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/knn_cuda/__init__.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="633">
-                  <caret line="45" selection-start-line="45" selection-end-line="45" />
-                  <folding>
-                    <element signature="e#0#9#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/knn_cuda/csrc/cuda/knn.cu">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-3357" />
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/th/lineintersect.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1154">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/np/ConcaveHull.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="224">
+              <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/np/lineintersect.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/th/ConcaveHull.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="335">
+              <caret line="89" selection-start-line="89" selection-end-line="89" />
+              <folding>
+                <element signature="e#262#272#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="288">
+                <caret line="18" column="100" selection-start-line="18" selection-start-column="100" selection-end-line="18" selection-end-column="100" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>remove</find>
       <find>plt.savefig</find>
-      <find>np</find>
       <find>cuda</find>
-      <find>print</find>
       <find>li</find>
+      <find>cpu</find>
+      <find>torch</find>
+      <find>np</find>
+      <find>print</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,9 +94,13 @@
       <list>
         <option value="$PROJECT_DIR$/performance.py" />
         <option value="$PROJECT_DIR$/knn_cuda/__init__.py" />
+        <option value="$PROJECT_DIR$/lineintersect.py" />
         <option value="$PROJECT_DIR$/ConcaveHull.py" />
         <option value="$PROJECT_DIR$/ConcaveHull_th.py" />
-        <option value="$PROJECT_DIR$/lineintersect.py" />
+        <option value="$PROJECT_DIR$/th/lineintersect.py" />
+        <option value="$PROJECT_DIR$/np/ConcaveHull.py" />
+        <option value="$PROJECT_DIR$/th/ConcaveHull.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -145,20 +125,12 @@
             <path>
               <item name="concavehull" type="b2602c69:ProjectViewProjectNode" />
               <item name="concavehull" type="462c0819:PsiDirectoryNode" />
-              <item name="knn_cuda" type="462c0819:PsiDirectoryNode" />
+              <item name="np" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="concavehull" type="b2602c69:ProjectViewProjectNode" />
               <item name="concavehull" type="462c0819:PsiDirectoryNode" />
-              <item name="knn_cuda" type="462c0819:PsiDirectoryNode" />
-              <item name="csrc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="concavehull" type="b2602c69:ProjectViewProjectNode" />
-              <item name="concavehull" type="462c0819:PsiDirectoryNode" />
-              <item name="knn_cuda" type="462c0819:PsiDirectoryNode" />
-              <item name="csrc" type="462c0819:PsiDirectoryNode" />
-              <item name="cuda" type="462c0819:PsiDirectoryNode" />
+              <item name="th" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -175,6 +147,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/np" />
+      <recent name="$PROJECT_DIR$/th" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -203,7 +177,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555946841447</updated>
-      <workItem from="1555946842920" duration="14778000" />
+      <workItem from="1555946842920" duration="19399000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1556002940221</created>
@@ -226,18 +200,25 @@
       <option name="project" value="LOCAL" />
       <updated>1556003729918</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="update">
+      <created>1556004188425</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1556004188426</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14778000" />
+    <option name="totallyTimeSpent" value="19399000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="155" y="29" width="1765" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.18340105" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18340105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
@@ -267,9 +248,41 @@
     <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/knn_cuda/csrc/cuda/knn.cu">
+    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/matplotlib/path.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3357" />
+        <state relative-caret-position="1424">
+          <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_knn.ipynb">
+      <provider selected="true" editor-type-id="ipnb-editor">
+        <state>
+          <selected id="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/performance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="512">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#62#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/knn_cuda/csrc/cuda/knn.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="545">
+          <caret line="36" column="58" lean-forward="true" selection-start-line="36" selection-start-column="58" selection-end-line="36" selection-end-column="58" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/knn_cuda/__init__.py">
@@ -282,57 +295,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda3/lib/python3.6/site-packages/matplotlib/path.py">
+    <entry file="file://$PROJECT_DIR$/knn_cuda/csrc/cuda/knn.cu">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1424">
-          <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="102" selection-end-column="8" />
+        <state relative-caret-position="-3343" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/np/ConcaveHull.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/performance.py">
+    <entry file="file://$PROJECT_DIR$/np/lineintersect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#62#80#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="288">
+          <caret line="45" column="17" lean-forward="true" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lineintersect_th.py">
+    <entry file="file://$PROJECT_DIR$/th/lineintersect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1840">
-          <caret line="115" column="51" lean-forward="true" selection-start-line="115" selection-start-column="51" selection-end-line="115" selection-end-column="51" />
+        <state relative-caret-position="-1154">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ConcaveHull.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="48" lean-forward="true" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-          <folding>
-            <element signature="e#263#281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ConcaveHull_th.py">
+    <entry file="file://$PROJECT_DIR$/th/ConcaveHull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
-          <caret line="132" column="51" lean-forward="true" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
+          <caret line="89" selection-start-line="89" selection-end-line="89" />
           <folding>
-            <element signature="e#263#281#0" expanded="true" />
+            <element signature="e#262#272#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lineintersect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-          <folding>
-            <element signature="e#140#158#0" expanded="true" />
-          </folding>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="288">
+            <caret line="18" column="100" selection-start-line="18" selection-start-column="100" selection-end-line="18" selection-end-column="100" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
