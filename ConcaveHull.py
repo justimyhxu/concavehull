@@ -83,7 +83,9 @@ def concaveHull(dataset, k):
     # todo: remove duplicate points from dataset
     # todo: check if dataset consists of only 3 or less points
     # todo: make sure that enough points for a given k can be found
-
+    for i in range(100):
+        firstpoint = GetFirstPoint(points)
+    print((time.time()-begin)/100)
     firstpoint = GetFirstPoint(points)
     # init hull as list to easily append stuff
     hull = []

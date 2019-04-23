@@ -98,8 +98,9 @@ def concaveHull(dataset, k):
     # todo: make sure that enough points for a given k can be found
 
     assert type(points) == torch.Tensor, "You are stupid like Shaohui!!!!"
-    firstpoint = GetFirstPoint(points)
-    # init hull as list to easily append stuff
+    for i in range(100):
+        firstpoint = GetFirstPoint(points)
+    print((time.time()-begin)/100)    # init hull as list to easily append stuff
     hull = []
     # add first point to hull
     hull.append(firstpoint)
@@ -163,7 +164,10 @@ points = torch.from_numpy(points).float().cuda()
 points_solution_k_5 = np.array([[3, 0],[10,  8],[15,  4],[18, 12],[13, 18],[13, 19],
                                [ 9, 18],[6, 18],[3, 18],[2, 14],[9, 9],[5, 3],[3, 0]
                                ])
-def test_concaveHull_1_k_5():
+def test_concaveHull_1_k_5(points):
+    points = points.cuda()
+    # import ipdb
+    # ipdb.set_trace()
     hull = concaveHull(points,5)
     assert np.array_equal(hull, points_solution_k_5)
     return hull
@@ -175,9 +179,11 @@ def test_concaveHull_1_k_3():
     return hull
 
 if __name__ == '__main__':
+
     import time
     begin = time.time()
-    hull = test_concaveHull_1_k_5()
+
+    hull = test_concaveHull_1_k_5(points)
     print(time.time()-begin)
     print(hull)
     plotPath(points.cpu().numpy(),hull)
