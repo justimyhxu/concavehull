@@ -6,7 +6,7 @@
 ##
 
 import numpy as np
-import torch
+
 def doBoundingBoxesIntersect(a, b, c, d):
     '''
     Check if bounding boxes do intersect. If one bounding box touches
@@ -23,19 +23,16 @@ def doBoundingBoxesIntersect(a, b, c, d):
            ll1_y <= ur2_y and \
            ur1_y >= ll2_y
 
-def dim2cross(a,b):
-    return a[0]*b[1]-a[1]*b[0]
 def isPointOnLine(a,b,c):
     '''
     Check if a point is on a line.
     '''
     # move to origin
     aTmp = (0,0)
-    bTmp = torch.tensor((b[0] - a[0], b[1] - a[1]))
-    cTmp = torch.tensor((c[0] - a[0], c[1] - a[1]))
-
-    r = dim2cross(bTmp, cTmp)
-    return torch.abs(r) < 0.0000000001
+    bTmp = (b[0] - a[0], b[1] - a[1])
+    cTmp = (c[0] - a[0], c[1] - a[1])
+    r = np.cross(bTmp, cTmp)
+    return np.abs(r) < 0.0000000001
 
 def isPointRightOfLine(a,b,c):
     '''
@@ -44,9 +41,9 @@ def isPointRightOfLine(a,b,c):
     '''
     # move to origin
     aTmp = (0,0)
-    bTmp = torch.tensor((b[0] - a[0], b[1] - a[1]))
-    cTmp = torch.tensor((c[0] - a[0], c[1] - a[1]))
-    return dim2cross(bTmp, cTmp) < 0
+    bTmp = (b[0] - a[0], b[1] - a[1])
+    cTmp = (c[0] - a[0], c[1] - a[1])
+    return np.cross(bTmp, cTmp) < 0
 
 def lineSegmentTouchesOrCrossesLine(a,b,c,d):
     '''
