@@ -130,7 +130,7 @@ def concaveHull(dataset, k):
                 j = 2
                 its = False
                 while ( (its==False) and (j<len(hull)-lastPoint) ):
-                    its = li.doLinesIntersect(hull[step-1-1].cpu().numpy(), cPoints[i-1],
+                    its = li.doLinesIntersect(hull[step-1-1], cPoints[i-1],
                             hull[step-1-j-1],hull[step-j-1])
                     j=j+1
         if ( its==True ):

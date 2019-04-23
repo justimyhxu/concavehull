@@ -31,8 +31,8 @@ def isPointOnLine(a,b,c):
     '''
     # move to origin
     aTmp = (0,0)
-    bTmp = torch.tensor((b[0] - a[0], b[1] - a[1]))
-    cTmp = torch.tensor((c[0] - a[0], c[1] - a[1]))
+    bTmp = (b[0] - a[0], b[1] - a[1])
+    cTmp = (c[0] - a[0], c[1] - a[1])
 
     r = dim2cross(bTmp, cTmp)
     return torch.abs(r) < 0.0000000001
@@ -44,8 +44,8 @@ def isPointRightOfLine(a,b,c):
     '''
     # move to origin
     aTmp = (0,0)
-    bTmp = torch.tensor((b[0] - a[0], b[1] - a[1]))
-    cTmp = torch.tensor((c[0] - a[0], c[1] - a[1]))
+    bTmp = (b[0] - a[0], b[1] - a[1])
+    cTmp = (c[0] - a[0], c[1] - a[1])
     return dim2cross(bTmp, cTmp) < 0
 
 def lineSegmentTouchesOrCrossesLine(a,b,c,d):

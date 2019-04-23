@@ -3,9 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="db85e3a4-c469-493f-8f29-8fde33221aea" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ConcaveHull.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConcaveHull.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ConcaveHull_th.py" beforeDir="false" afterPath="$PROJECT_DIR$/ConcaveHull_th.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/figure_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/doc/figure_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lineintersect.py" beforeDir="false" afterPath="$PROJECT_DIR$/lineintersect.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -29,11 +28,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lineintersect.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="288">
-                  <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
+                <state relative-caret-position="672">
+                  <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
                   <folding>
                     <element signature="e#140#158#0" expanded="true" />
                   </folding>
@@ -41,7 +40,7 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/ConcaveHull.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="112">
@@ -60,8 +59,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/ConcaveHull_th.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="464">
-                  <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+                <state relative-caret-position="335">
+                  <caret line="132" column="51" lean-forward="true" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
                   <folding>
                     <element signature="e#263#281#0" expanded="true" />
                   </folding>
@@ -103,12 +102,12 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>li</find>
       <find>remove</find>
       <find>plt.savefig</find>
       <find>np</find>
       <find>cuda</find>
       <find>print</find>
+      <find>li</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,9 +118,9 @@
       <list>
         <option value="$PROJECT_DIR$/performance.py" />
         <option value="$PROJECT_DIR$/knn_cuda/__init__.py" />
-        <option value="$PROJECT_DIR$/lineintersect.py" />
-        <option value="$PROJECT_DIR$/ConcaveHull_th.py" />
         <option value="$PROJECT_DIR$/ConcaveHull.py" />
+        <option value="$PROJECT_DIR$/ConcaveHull_th.py" />
+        <option value="$PROJECT_DIR$/lineintersect.py" />
       </list>
     </option>
   </component>
@@ -204,7 +203,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1555946841447</updated>
-      <workItem from="1555946842920" duration="14386000" />
+      <workItem from="1555946842920" duration="14778000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1556002940221</created>
@@ -220,24 +219,31 @@
       <option name="project" value="LOCAL" />
       <updated>1556003000179</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update">
+      <created>1556003729918</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1556003729918</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14386000" />
+    <option name="totallyTimeSpent" value="14778000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="155" y="29" width="1765" height="1177" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18340105" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.18340105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.32963988" />
+      <window_info anchor="bottom" id="Terminal" weight="0.32963988" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -300,16 +306,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lineintersect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="45" column="16" lean-forward="true" selection-start-line="45" selection-start-column="16" selection-end-line="45" selection-end-column="16" />
-          <folding>
-            <element signature="e#140#158#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ConcaveHull.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="112">
@@ -322,10 +318,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ConcaveHull_th.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
+        <state relative-caret-position="335">
+          <caret line="132" column="51" lean-forward="true" selection-start-line="132" selection-start-column="51" selection-end-line="132" selection-end-column="51" />
           <folding>
             <element signature="e#263#281#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lineintersect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="672">
+          <caret line="48" column="36" lean-forward="true" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding>
+            <element signature="e#140#158#0" expanded="true" />
           </folding>
         </state>
       </provider>
